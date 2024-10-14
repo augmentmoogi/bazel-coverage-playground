@@ -13,6 +13,8 @@ load("@rules_python//python:repositories.bzl", "py_repositories")
 
 py_repositories()
 
+
+
 ## Install pip dependencies. TODO: use lock file.
 load("@rules_python//python:pip.bzl", "pip_parse")
 

@@ -6,14 +6,14 @@ py_binary(
     srcs = ["calculator.py"],
 )
 
-# pytest_test(
-#     name = "str_utils_test",
-#     srcs = ["str_utils_test.py"],
-#     deps = [
-#         ":str_utils",
-#         requirement("pytest"),
-#     ],
-# )
+py_test(
+    name = "calculator_test2",
+    size = "small",
+    srcs = ["calculator_test2.py"],
+    deps = [
+        ":calculator",
+    ],
+)
 
 py_pytest_test(
     name = "calculator_test",
@@ -22,5 +22,25 @@ py_pytest_test(
     deps = [
         ":calculator",
         requirement("pytest"),
+        requirement("pytest-cov"),
+    ],
+)
+
+py_pytest_test(
+    name = "python_version_test",
+    srcs = ["python_version_test.py"],
+)
+
+py_library(
+    name = "my_calculator",
+    srcs = ["my_calculator/my_calculator.py"],
+)
+
+py_test(
+    name = "my_calculator_test",
+    size = "small",
+    srcs = ["my_calculator/my_calculator_test.py"],
+    deps = [
+        ":my_calculator",
     ],
 )
